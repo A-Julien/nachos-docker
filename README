@@ -1,3 +1,12 @@
 # nachos-docker
 Build environnement for nachOS based on debian stretch
 
+
+# Usage
+Run nachos :
+
+```docker run --rm   -v path_to_nachos:/nachos  jalaimo/nachos-build  bash -c 'cd /nachos/code && make && cd build && ./nachos-userprog -x halt' ```
+
+Enter into container : 
+
+```docker run   -v  path_to_nachos:/nachos -it --entrypoint /bin/bash jalaimo/nachos-build```
