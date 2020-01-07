@@ -1,7 +1,8 @@
-# Nachos-docker are fully working for nachOS M1INFO version UGA students.
+# Nachos-docker 
+##Provide a fully working toolchain for nachOS M1INFO UGA students version.
 
 # nachos-docker
-Build environnement for nachOS based on debian stretch
+Build environnement for nachOS based on debian stretch-slim
 
 # Usage
 Example run halt command in nachos nachos-userprog :
