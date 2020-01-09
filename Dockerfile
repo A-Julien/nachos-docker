@@ -23,6 +23,8 @@ RUN apt-get -qq update > /dev/null && DEBIAN_FRONTEND=noninteractive apt-get -qq
 make \
     	cmake \
 build-essential \
+gdb \
+valgrind \
 git \
 curl \
 nano \

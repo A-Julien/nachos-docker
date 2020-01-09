@@ -41,6 +41,8 @@ print_basepackages() {
 		make \
     	cmake \
 		build-essential \
+		gdb \
+		valgrind \
 		git \
 		curl \
 		nano \
