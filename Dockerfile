@@ -24,6 +24,7 @@ make \
     	cmake \
 build-essential \
 gdb \
+doxygen \
 valgrind \
 git \
 curl \
