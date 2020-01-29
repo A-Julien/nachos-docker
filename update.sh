@@ -1,6 +1,6 @@
 #!/bin/bash
 
-arches="files"
+arches="i386/debian debian"
 
 print_header() {
 	cat > $1 <<-EOI
@@ -18,7 +18,7 @@ print_header() {
 # Print selected image
 print_baseimage() {
 	cat >> $1 <<-EOI
-    FROM debian:stretch-slim
+    FROM ${arch}:stretch-slim
 	LABEL maintainer="Alaimo Julien <julien.alaimo@gmail.com>"
 	EOI
 }
@@ -69,11 +69,23 @@ EOI
 } 
 
 # Build the Dockerfiles
-file=Dockerfile
-echo -n "Writing $file..."
-print_header ${file};
-print_baseimage ${file};
-print_basepackages ${file};
-print_add_install ${file};
-print_command ${file};
-echo "done"
+if [ ! -d "dockerfile" ]; then
+    mkdir dockerfile
+fi
+for arch in ${arches}
+do
+	archfile=${arch}
+	if [ $arch == "i386/debian" ]; then
+		archfile="i386"
+	fi
+	file=dockerfile/${archfile}/Dockerfile
+		mkdir -p `dirname ${file}` 2>/dev/null
+		echo -n "Writing $file..."
+		print_header ${file};
+		print_baseimage ${file};
+		print_basepackages ${file};
+		print_add_install ${file};
+		print_command ${file};
+		echo "done"
+done
+
